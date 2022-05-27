@@ -1,0 +1,28 @@
+### 登录 - 获取 Token
+POST http://127.0.0.1:7000/ecommerce-authority-center/authority/token
+Content-Type: application/json
+
+{
+  "username": "hedon",
+  "password": "25d55ad283aa400af464c76d713c07ad"
+}
+
+
+### 注册失败
+POST http://127.0.0.1:7000/ecommerce-authority-center/authority/register
+Content-Type: application/json
+
+{
+  "username": "hedon",
+  "password": "25d55ad283aa400af464c76d713c07ad"
+}
+
+### 注册成功
+POST http://127.0.0.1:7000/ecommerce-authority-center/authority/register
+Content-Type: application/json
+
+{
+  "username": "wjh",
+  "password": "25d55ad283aa400af464c76d713c07ad"
+}
+

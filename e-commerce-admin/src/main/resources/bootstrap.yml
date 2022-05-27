@@ -1,0 +1,36 @@
+server:
+  port: 7001
+  servlet:
+    context-path: /e-commerce-admin
+spring:
+  application:
+    name: e-commerce-admin
+  # 安全认证
+  security:
+    user:
+      name: hedon
+      password: hedon
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: 127.0.0.1:8848
+        namespace: 5823edac-2e1d-4f8b-9d56-3d603eb3b895
+        metadata:
+          management:
+            context-path: ${server.servlet.context-path}/actuator
+          user.name: hedon
+          user.password: hedon
+  thymeleaf:
+    check-template: false
+    check-template-location: false
+
+#暴露端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*' #需要开发的端点，默认只打开 health 和 info 两个端点。
+  endpoint:
+    health:
+      show-details: always

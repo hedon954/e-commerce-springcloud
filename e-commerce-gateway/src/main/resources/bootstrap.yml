@@ -1,0 +1,44 @@
+server:
+  port: 9001
+  servlet:
+    context-path: /imooc
+spring:
+  application:
+    name: e-commerce-gateway
+  main:
+    allow-bean-definition-overriding: true # 因为将来会引入很多依赖，难免有重名的 bean
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: 127.0.0.1:8848
+        namespace: 5823edac-2e1d-4f8b-9d56-3d603eb3b895
+        metadata:
+          management:
+            context-path: ${server.servlet.context-path}/actuator
+    #静态路由
+#    gateway:
+#      routes:
+#        - id: path_route #路由ID
+#          uri: 127.0.0.1:8080/user/{id} #匹配后路由地址
+#          predicates: #断言，路径相匹配则进行路由
+#            - Path=/user/{id}
+
+# Nacos 配置中心，这个地方独立配置，是网关的数据，代码 GatewayConfig.java 中读取被监听
+nacos:
+  gateway:
+    route:
+      config:
+        data-id: e-commerce-gateway-router
+        group: e-commerce
+
+# 暴露端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
