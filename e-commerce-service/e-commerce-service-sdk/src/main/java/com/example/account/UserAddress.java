@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 /**
  * @author Hedon Wang
  * @create 2022-05-31 4:29 PM
@@ -14,7 +16,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @ApiModel(description = "用户地址基础信息")
-public class UserAddress {
+public class UserAddress implements Serializable {
 
     @ApiModelProperty(value = "用户姓名")
     private String username;
