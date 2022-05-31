@@ -1,0 +1,60 @@
+server:
+  port: 8003
+  servlet:
+    context-path: /ecommerce-account-service
+spring:
+  application:
+    name: e-commerce-account-service
+  cloud:
+    nacos:
+      discovery:
+        enabled: true
+        server-addr: 127.0.0.1:8848
+        namespace: 5823edac-2e1d-4f8b-9d56-3d603eb3b895
+        metadata:
+          management:
+            context-path: ${server.servlet.context-path}/actuator
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    producer:
+      retries: 3
+    consumer:
+      auto-offset-reset: latest
+  sleuth:
+    sampler:
+      probability: 1.0
+  zipkin:
+    sender:
+      type: kafka
+    base-url: http://127.0.0.1:9411/
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate.show_sql: true
+      hibernate.format_sql: true
+    open-in-view: true
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/imooc_e_commerce?autoReconnect=true&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: xxt5201314
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 8
+      minimum-idle: 4
+      idle-timeout: 30000
+      connection-timeout: 30000
+      max-lifetime: 45000
+      auto-commit: true
+      pool-name: ImoocEcommerceHikariCP
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
