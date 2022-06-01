@@ -11,8 +11,8 @@ import com.example.service.IAddressService;
 import com.example.vo.LoginUserInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
  */
 @Service
 @Slf4j
-@Transactional(rollbackOn = Exception.class)
+@Transactional(rollbackFor = Exception.class)
 public class AddressServiceImpl implements IAddressService {
 
     private final EcommerceAddressDao ecommerceAddressDao;

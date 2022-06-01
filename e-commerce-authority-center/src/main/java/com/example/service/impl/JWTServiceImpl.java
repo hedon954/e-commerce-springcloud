@@ -12,9 +12,9 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import sun.misc.BASE64Decoder;
 
-import javax.transaction.Transactional;
 import java.security.KeyFactory;
 import java.security.PrivateKey;
 import java.security.spec.PKCS8EncodedKeySpec;
@@ -32,7 +32,7 @@ import java.util.UUID;
  */
 @Slf4j
 @Service
-@Transactional(rollbackOn = Exception.class)
+@Transactional(rollbackFor = Exception.class)
 public class JWTServiceImpl implements IJWTService {
 
     private final EcommerceUserDao ecommerceUserDao;

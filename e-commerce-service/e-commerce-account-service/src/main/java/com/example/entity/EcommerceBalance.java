@@ -22,7 +22,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Entity
 @EntityListeners({AuditingEntityListener.class})
-@Table(name = "t_ecommerce_balannce")
+@Table(name = "t_ecommerce_balance")
 public class EcommerceBalance implements Serializable {
 
     /** 自增主键 */
