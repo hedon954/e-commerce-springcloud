@@ -13,9 +13,9 @@ spring:
         enabled: true
         server-addr: 127.0.0.1:8848
         namespace: 5823edac-2e1d-4f8b-9d56-3d603eb3b895
-        metadata:
-          management:
-            context-path: ${server.servlet.context-path}/actuator
+#        metadata:
+#          management:
+#            context-path: ${server.servlet.context-path}/actuator
     #静态路由
 #    gateway:
 #      routes:

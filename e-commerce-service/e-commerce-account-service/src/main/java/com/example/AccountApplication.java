@@ -10,6 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
  *
  * swagger 地址
  * - 127.0.0.1:8003/ecommerce-account-service/doc.html
+ * - 127.0.0.1:8003/ecommerce-account-service/swagger-ui.html
  *
  * @author Hedon Wang
  * @create 2022-05-31 4:07 PM
